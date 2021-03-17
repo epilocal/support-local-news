@@ -1,0 +1,20 @@
+/* CSS Custom Properties Definitions */
+
+:root {
+  /*Colors*/
+  --bg: #fff;
+  --primary: #004E64;
+  --secondary: #122C34;
+  --text: #12130F;
+  --highlight: #4d8af0;
+  --accent1: #8F8073;
+  --accent2: #FAF186;
+  --accent3: #25A18E;
+  --accent4: #E7F7F4;
+  --accent5: #449DD1;
+
+
+  /*Font*/
+  --family-main: 'Nunito';
+  --style-logo: 'italic';
+}

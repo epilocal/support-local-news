@@ -5,7 +5,7 @@ import Select from 'react-select';
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Button from "../components/button";
-//import Dropdown from "../components/dropdown";
+import Table from "../components/table";
 
 import publications from "../data/publications.json";
 import options from "../data/options.json";
@@ -20,7 +20,10 @@ const IndexPage = () => {
   }
 
   const[randomPublication, setRandomPublication] = useState(publications[getRandomNumber(0, publications.length - 1)]);
+  const[randomFilteredPublication, setRandomFilteredPublication] = useState(publications[getRandomNumber(0, publications.length - 1)]);
+
   const[filteredPublications, setFilteredPublications] = useState([]);
+  const[showTable, setShowTable] = useState(false);
 
   const[countryValues, setCountryValues] = useState({ selectedOption: []});
   const[stateValues, setStateValues] = useState({ selectedOption: []});
@@ -29,9 +32,18 @@ const IndexPage = () => {
   const[cityOptions, setCityOptions] = useState([]);
 
 
+  const toggleShowTable = () => {
+    setShowTable(!showTable);
+  }
+
   const newRandomPublication = (pubs) => {
     let numPubs = pubs.length;
     setRandomPublication(pubs[getRandomNumber(0, numPubs - 1)]);
+  }
+
+  const newRandomFilteredPublication = (pubs) => {
+    let numPubs = pubs.length;
+    setRandomFilteredPublication(pubs[getRandomNumber(0, numPubs - 1)]);
   }
 
   const countryOptions = Object.keys(options).map( (country) => ({value: country, label: country}));
@@ -43,13 +55,16 @@ const IndexPage = () => {
         setCountryValues({selectedOption: values});
         if (values.length < 1) {
           setStateValues({selectedOption: []});
+          setStateOptions([]);
           setCityValues({selectedOption: []});
+          setCityOptions([]);
         }
         break;
       case 'state':
         setStateValues({selectedOption: values});
         if (values.length < 1) {
           setCityValues({selectedOption: []});
+          setCityOptions([]);
         }
         break;
       case 'city':
@@ -84,7 +99,7 @@ const IndexPage = () => {
     }
     console.log(filteredPubs);
     setFilteredPublications(filteredPubs);
-    newRandomPublication(filteredPubs);
+    newRandomFilteredPublication(filteredPubs);
   }
 
   useEffect(() => {
@@ -120,7 +135,7 @@ const IndexPage = () => {
       <div style={{textAlign: 'center'}}>
         <p style={{fontSize: '1.5rem'}}>Did you know that: 1 / 3 local newspapers has closed in the last 10 years</p>
         <p style={{fontSize: '1.5rem'}}>Clicking on the button below will randomly take you to an independent news site in the US or Canada</p>
-        <a href={randomPublication['URL']} target="_blank" rel="noreferrer" onClick={ () => { newRandomPublication(publications) }}><Button style size='lg' textSize='lg'>Inspire me</Button></a>
+        <a href={randomPublication['URL']} target="_blank" rel="noreferrer" onClick={ () => newRandomPublication(publications) }><Button style size='lg' textSize='lg'>Inspire me</Button></a>
         <p style={{fontSize: '1.5rem'}}>Or use the filters below to find a local news site near you:</p>
         <Select
           className="reactSelect"
@@ -151,8 +166,9 @@ const IndexPage = () => {
           isMulti
           isDisabled={cityOptions.length < 1}
         />
-        <a href={randomPublication['URL']} target="_blank" rel="noreferrer" ><Button style size='lg' textSize='lg'>Inspire me</Button></a>
-        <Button style size='lg' textSize='lg' onClick={ () => { filterPublications() }}>See in your area</Button>
+        <a href={randomFilteredPublication['URL']} target="_blank" rel="noreferrer" onClick={ () => newRandomFilteredPublication(filteredPublications) } ><Button style size='lg' textSize='lg'>Inspire me</Button></a>
+        <Button style size='lg' textSize='lg' onClick={ () => { toggleShowTable() }}>See in your area</Button>
+        {showTable && <Table tableData={filteredPublications} />}
       </div>
 
     </Layout>

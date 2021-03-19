@@ -1,82 +1,48 @@
 import React from 'react';
-import { useTable } from 'react-table';
+import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 
+import './styles/table.css';
+
+
+const tableHeaders = [
+  {id: 'url', accesor: 'URL', 'name': 'Site URL'},
+  {id: 'name', accesor: 'Publication Name', 'name': 'Name'},
+  {id: 'city', accesor: 'City', 'name': 'City'},
+  {id: 'state', accesor: 'State', 'name': 'State / Province'},
+  {id: 'country', accesor: 'Country', 'name': 'Country'}
+];
 
 
 const TableApp = ({tableData}) => {
+    return (
+      <Table>
+        <Thead>
+          <Tr>
+            {tableHeaders.map( (header, i) => (
+              <Th key={`th-${i}`}>{header.name}</Th>
+            ))}
+          </Tr>
+        </Thead>
+        <Tbody>
+          {tableData.map( (row, r) => (
+            <Tr>
+              {tableHeaders.map( (cell, c) => {
+                if (cell.id === 'url') {
+                  return (
+                    <Td key={`td-${r}-${c}`}><a href={row[cell.accesor]}>{row[cell.accesor]}</a></Td>
+                  )
+                }
+                return (
+                  <Td key={`td-${r}-${c}`}>{row[cell.accesor]}</Td>
+                )
 
-  console.log(tableData);
-   const data = React.useMemo(
-     () => tableData.map( (pub) => ({'col1': pub['Publication Name'], 'col2': pub['URL'] })), [tableData])
+              })}
+            </Tr>
 
-   const columns = React.useMemo(
-     () => [
-       {
-         Header: 'Column 1',
-         accessor: 'col1', // accessor is the "key" in the data
-       },
-       {
-         Header: 'Column 2',
-         accessor: 'col2',
-       },
-     ],
-     []
-   )
-
-   const {
-     getTableProps,
-     getTableBodyProps,
-     headerGroups,
-     rows,
-     prepareRow,
-   } = useTable({ columns, data })
-
-   return (
-     <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
-       <thead>
-         {headerGroups.map(headerGroup => (
-           <tr {...headerGroup.getHeaderGroupProps()}>
-             {headerGroup.headers.map(column => (
-               <th
-                 {...column.getHeaderProps()}
-                 style={{
-                   borderBottom: 'solid 3px red',
-                   background: 'aliceblue',
-                   color: 'black',
-                   fontWeight: 'bold',
-                 }}
-               >
-                 {column.render('Header')}
-               </th>
-             ))}
-           </tr>
-         ))}
-       </thead>
-       <tbody {...getTableBodyProps()}>
-         {rows.map(row => {
-           prepareRow(row)
-           return (
-             <tr {...row.getRowProps()}>
-               {row.cells.map(cell => {
-                 return (
-                   <td
-                     {...cell.getCellProps()}
-                     style={{
-                       padding: '10px',
-                       border: 'solid 1px gray',
-                       background: 'papayawhip',
-                     }}
-                   >
-                     {cell.render('Cell')}
-                   </td>
-                 )
-               })}
-             </tr>
-           )
-         })}
-       </tbody>
-     </table>
-   )
+          ))}
+        </Tbody>
+      </Table>
+  )
  }
 
  export default TableApp;

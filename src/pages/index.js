@@ -97,7 +97,6 @@ const IndexPage = () => {
         return cityLabels.indexOf(publication['City']) > -1;
       });
     }
-    console.log(filteredPubs);
     setFilteredPublications(filteredPubs);
     newRandomFilteredPublication(filteredPubs);
   }

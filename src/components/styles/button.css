@@ -13,8 +13,7 @@ xxsmall: '(max-width: 360px)'
 /*BUTTON*/
 
 .button {
-  background-color: var(--highlight);
-  border-color: var(--primary);
+  background-color: var(--color-secondary);
   border-radius: 1.25rem;
   color: #fff;
   cursor: pointer;
@@ -22,7 +21,7 @@ xxsmall: '(max-width: 360px)'
 }
 
 .button:hover {
-  background-color: var(--primary);
+  background-color: var(--color-primary);
 }
 
 

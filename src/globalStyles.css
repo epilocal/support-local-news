@@ -1,22 +1,22 @@
 /* CSS Custom Properties Definitions */
 
 :root {
-  /*Colors*/
-  --bg: #fff;
-  --primary: #004E64;
-  --secondary: #122C34;
-  --text: #12130F;
-  --highlight: #4d8af0;
-  --accent1: #8F8073;
-  --accent2: #FAF186;
-  --accent3: #25A18E;
-  --accent4: #E7F7F4;
-  --accent5: #449DD1;
+    /* Colours */
+    --color-background: #FFFFFF;
+    --color-primary: #78a4a5;
+    --color-primary-transparent: #78a4a5CC;
+    --color-secondary: #47698e;
+    --color-text-primary: #12130F;
+    --color-text-secondary: #738a94;
+    --color-text-alternate: #FFFFFF;
+    --color-highlight:#47698e;
+    --color-highlight-transparent: #47698e80;
+    --color-light: #e0eaea;
 
+    /* Font Family */
+    --font-family: 'Nunito';
 
-  /*Font*/
-  --family-main: 'Nunito';
-  --style-logo: 'italic';
+    font-family: 'Nunito' !important;
 }
 
 

@@ -133,13 +133,13 @@ const IndexPage = () => {
       <div style={{textAlign: 'center'}}>
         <Card>
           <h2>Did you know:</h2>
-          <p style={{fontSize: '1.5rem'}}>1 / 3 local newspapers has closed in the last 10 years</p>
+          <p style={{fontSize: '1.5rem'}}>1 out of 5 local newspapers in the US has closed or merged since 2004</p>
         </Card>
         <section style={{paddingTop: '4rem'}}>
-        <h2 style={{fontSize: '2.25rem'}}>Show some love to an independent, local news site</h2>
+        <h2 style={{fontSize: '2.5rem'}}>Show some love to an independent, local news site</h2>
         <p style={{fontSize: '1.5rem'}}>Clicking on the button below will randomly take you to a local news site in the US or Canada</p>
         <a href={randomPublication['URL']} target="_blank" rel="noreferrer" onClick={ () => newRandomPublication(publications) }><Button style size='lg' textSize='lg'>Inspire me</Button></a>
-        <p style={{fontSize: '1.5rem', paddingTop: '2rem'}}>Or use the filters below to find a local news site near you:</p>
+        <p style={{fontSize: '1.5rem', paddingTop: '3rem'}}>Or use the filters below to find a local news site near you:</p>
         <div style={{paddingBottom: '1rem', margin: 'auto'}}>
         <Select
           className="reactSelect"

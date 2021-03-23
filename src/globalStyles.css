@@ -18,3 +18,23 @@
   --family-main: 'Nunito';
   --style-logo: 'italic';
 }
+
+
+
+.reactSelect {
+  display: inline-block;
+  width: 25%;
+  margin: 0 1rem;
+  text-align: left;
+}
+
+/*Small and Below*/
+@media only screen and (max-width: 736px) {
+  .reactSelect {
+    display: block;
+    width: 80%;
+    margin: 1rem auto;
+    text-align: center;
+  }
+
+}

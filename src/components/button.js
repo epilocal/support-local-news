@@ -24,7 +24,8 @@ const Button = ({ children, textSize = '', size, onClick, opposite, outline, cus
       style={{
             fontSize: `${fontSizes[textSize] || fontSizes.default}`,
             fontFamily: 'Nunito',
-            margin: customMargin
+            margin: customMargin,
+            width: '200px'
           }}
       type="button"
       onClick={onClick}

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { StaticImage } from "gatsby-plugin-image";
 import Select from 'react-select';
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import Button from "../components/button";
 import Table from "../components/table";
+import Card from "../components/card";
 
 import publications from "../data/publications.json";
 import options from "../data/options.json";
@@ -69,7 +69,6 @@ const IndexPage = () => {
         break;
       case 'city':
         setCityValues({selectedOption: values});
-
         break;
       default:
         break
@@ -132,14 +131,20 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <div style={{textAlign: 'center'}}>
-        <p style={{fontSize: '1.5rem'}}>Did you know that: 1 / 3 local newspapers has closed in the last 10 years</p>
-        <p style={{fontSize: '1.5rem'}}>Clicking on the button below will randomly take you to an independent news site in the US or Canada</p>
+        <Card>
+          <h2>Did you know:</h2>
+          <p style={{fontSize: '1.5rem'}}>1 / 3 local newspapers has closed in the last 10 years</p>
+        </Card>
+        <section style={{paddingTop: '4rem'}}>
+        <h2 style={{fontSize: '2.25rem'}}>Show some love to an independent, local news site</h2>
+        <p style={{fontSize: '1.5rem'}}>Clicking on the button below will randomly take you to a local news site in the US or Canada</p>
         <a href={randomPublication['URL']} target="_blank" rel="noreferrer" onClick={ () => newRandomPublication(publications) }><Button style size='lg' textSize='lg'>Inspire me</Button></a>
-        <p style={{fontSize: '1.5rem'}}>Or use the filters below to find a local news site near you:</p>
+        <p style={{fontSize: '1.5rem', paddingTop: '2rem'}}>Or use the filters below to find a local news site near you:</p>
+        <div style={{paddingBottom: '1rem', margin: 'auto'}}>
         <Select
           className="reactSelect"
           name="country-filter"
-          placeholder="Filters"
+          placeholder="Country"
           value={countryValues.selectedOption}
           options={countryOptions}
           onChange={(values) => toggleDropdown(values, 'country')}
@@ -148,7 +153,7 @@ const IndexPage = () => {
         <Select
           className="reactSelect"
           name="state-filter"
-          placeholder="Filters"
+          placeholder="State / Province"
           value={stateValues.selectedOption}
           options={stateOptions}
           onChange={(values) => toggleDropdown(values, 'state')}
@@ -158,16 +163,19 @@ const IndexPage = () => {
         <Select
           className="reactSelect"
           name="city-filter"
-          placeholder="Filters"
+          placeholder="City / Town"
           value={cityValues.selectedOption}
           options={cityOptions}
           onChange={(values) => toggleDropdown(values, 'city')}
           isMulti
           isDisabled={cityOptions.length < 1}
         />
-        <a href={randomFilteredPublication['URL']} target="_blank" rel="noreferrer" onClick={ () => newRandomFilteredPublication(filteredPublications) } ><Button style size='lg' textSize='lg'>Inspire me</Button></a>
-        <Button style size='lg' textSize='lg' onClick={ () => { toggleShowTable() }}>See in your area</Button>
+        </div>
+        <a href={randomFilteredPublication['URL']} target="_blank" rel="noreferrer" onClick={ () => newRandomFilteredPublication(filteredPublications) } ><Button customMargin='.75rem' style size='md' textSize='lg'>Go to random in my area</Button></a>
+        <Button customMargin='.75rem' style size='md' textSize='lg' onClick={ () => { toggleShowTable() }}>{!showTable ? 'See all in my area' : 'Hide all in my area'}</Button>
         {showTable && <Table tableData={filteredPublications} />}
+        <p style={{fontSize: '1.25rem', paddingTop: '2rem'}}>Made by <a href='https://twitter.com/dickens_greg'>Greg</a> as part of the <a href='https://www.epilocal.com/'>Epilocal</a> project</p>
+        </section>
       </div>
 
     </Layout>

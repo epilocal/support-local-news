@@ -15,39 +15,16 @@ xxsmall: '(max-width: 360px)'
 .button {
   background-color: var(--highlight);
   border-color: var(--primary);
-  border-radius: 0.25rem;
+  border-radius: 1.25rem;
   color: #fff;
   cursor: pointer;
+  font-weight: 600;
 }
 
 .button:hover {
   background-color: var(--primary);
 }
 
-.buttonOpposite {
-  background-color: var(--primary);
-  border-color: var(--primary);
-  border-radius: 0.25rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-.buttonOpposite:hover {
-  background-color: var(--highlight);
-}
-
-.buttonOutline {
-  background-color: #fff;
-  border-color: var(--primary);
-  border-radius: 0.25rem;
-  color: var(--primary);
-  cursor: pointer;
-}
-
-.buttonOutline:hover {
-  background-color: var(--primary);
-  color: #fff;
-}
 
 
 .buttonDefault {

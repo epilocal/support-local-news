@@ -33,8 +33,8 @@ const Layout = ({ children }) => {
             textAlign: 'center'
           }}
         >
-          <p>Sources: <a href='https://www.projectnewsoasis.com/'>Project Oasis</a>, <a href='https://www.usnewsdeserts.com/reports/expanding-news-desert/'>UNC News Deserts Study</a></p>
-          © {new Date().getFullYear()} | MIT License | <a href='https://www.github.com/'>See Code on Github</a>
+          <p>Sources: <a target="_blank" rel="noreferrer" href='https://www.projectnewsoasis.com/'>Project Oasis</a>, <a target="_blank" rel="noreferrer" href='https://www.usnewsdeserts.com/reports/expanding-news-desert/'>UNC News Deserts Study</a></p>
+          © {new Date().getFullYear()} | <a target="_blank" rel="noreferrer" href='https://github.com/epilocal/support-local-news'>See Code on Github</a>
         </footer>
       </div>
     </div>

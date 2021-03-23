@@ -29,7 +29,7 @@ const TableApp = ({tableData}) => {
               {tableHeaders.map( (cell, c) => {
                 if (cell.id === 'url') {
                   return (
-                    <Td key={`td-${r}-${c}`}><a href={row[cell.accesor]}>{row[cell.accesor]}</a></Td>
+                    <Td key={`td-${r}-${c}`}><a href={row[cell.accesor]} rel="external">{row[cell.accesor]}</a></Td>
                   )
                 }
                 return (

@@ -138,7 +138,7 @@ const IndexPage = () => {
         <section style={{paddingTop: '4rem'}}>
         <h2 style={{fontSize: '2.5rem'}}>Show some love to an independent, local news site</h2>
         <p style={{fontSize: '1.5rem'}}>Clicking on the button below will randomly take you to a local news site in the US or Canada</p>
-        <a href={randomPublication['URL']} target="_blank" rel="noreferrer" onClick={ () => newRandomPublication(publications) }><Button style size='lg' textSize='lg'>Inspire me</Button></a>
+        <a href={randomPublication['URL']} rel="external" onClick={ () => newRandomPublication(publications) }><Button style size='lg' textSize='lg'>Inspire me</Button></a>
         <p style={{fontSize: '1.5rem', paddingTop: '3rem'}}>Or use the filters below to find a local news site near you:</p>
         <div style={{paddingBottom: '1rem', margin: 'auto'}}>
         <Select
@@ -171,10 +171,10 @@ const IndexPage = () => {
           isDisabled={cityOptions.length < 1}
         />
         </div>
-        <a href={randomFilteredPublication['URL']} target="_blank" rel="noreferrer" onClick={ () => newRandomFilteredPublication(filteredPublications) } ><Button customMargin='.75rem' style size='md' textSize='lg'>Go to random in my area</Button></a>
+        <a href={randomFilteredPublication['URL']} rel="external" onClick={ () => newRandomFilteredPublication(filteredPublications) } ><Button customMargin='.75rem' style size='md' textSize='lg'>Go to random in my area</Button></a>
         <Button customMargin='.75rem' style size='md' textSize='lg' onClick={ () => { toggleShowTable() }}>{!showTable ? 'See all in my area' : 'Hide all in my area'}</Button>
         {showTable && <Table tableData={filteredPublications} />}
-        <p style={{fontSize: '1.25rem', paddingTop: '2rem'}}>Made by <a href='https://twitter.com/dickens_greg'>Greg</a> as part of the <a href='https://www.epilocal.com/'>Epilocal</a> project</p>
+        <p style={{fontSize: '1.25rem', paddingTop: '2rem'}}>Made by <a target="_blank" rel="noreferrer" href='https://twitter.com/dickens_greg'>Greg</a> as part of the <a href='https://www.epilocal.com/'>Epilocal</a> project</p>
         </section>
       </div>
 

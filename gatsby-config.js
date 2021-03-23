@@ -1,8 +1,9 @@
 module.exports = {
   siteMetadata: {
     title: `Support Local News`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `Find an indepdent, local news site near you.`,
+    siteUrl: `https://supportlocal.news`,
+    author: `Epilocal`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -19,16 +20,31 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `support-local-news`,
+        short_name: `sln`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#47698e`,
+        theme_color: `#47698e`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/support-local-icon.png`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-gatsby-cloud`,
+    {
+      resolve: `gatsby-plugin-s3`,
+      options: {
+        protocol: "https",
+        hostname: "supportlocal.news",
+        bucketName: "epilocal-supportlocal"
+      },
+    },
+    'gatsby-plugin-robots-txt',
+    `gatsby-plugin-advanced-sitemap`,
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+          siteUrl: "https://supportlocal.news",
+      }
+    }
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

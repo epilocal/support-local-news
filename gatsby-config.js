@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Support Local News`,
-    description: `Find an indepdent, local news site near you.`,
+    description: `Find an independent, local news site near you.`,
     siteUrl: `https://supportlocal.news`,
     author: `Epilocal`,
   },
@@ -35,6 +35,12 @@ module.exports = {
         protocol: "https",
         hostname: "supportlocal.news",
         bucketName: "epilocal-supportlocal"
+      },
+    },
+    {
+      resolve: `gatsby-plugin-plausible`,
+      options: {
+        domain: `supportlocal.news`,
       },
     },
     'gatsby-plugin-robots-txt',

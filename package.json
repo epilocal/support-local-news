@@ -1,6 +1,6 @@
 {
   "name": "support-local-news",
-  "description": "Find an indepdent, local news site near you.",
+  "description": "Find an independent, local news site near you.",
   "version": "1.0.0",
   "author": "Greg Dickens <greg@epilocal.com>",
   "dependencies": {
@@ -10,6 +10,7 @@
     "gatsby-plugin-image": "^1.0.0",
     "gatsby-plugin-manifest": "^3.0.0",
     "gatsby-plugin-offline": "^4.0.0",
+    "gatsby-plugin-plausible": "0.0.7",
     "gatsby-plugin-react-helmet": "^4.0.0",
     "gatsby-plugin-robots-txt": "^1.5.5",
     "gatsby-plugin-s3": "^0.3.8",
